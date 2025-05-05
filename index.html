@@ -1,1 +1,210 @@
-404
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Seite nicht gefunden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #fff;
+            position: relative;
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+            position: relative;
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            text-align: left;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.2s;
+            z-index: 10;
+        }
+        
+        .brand {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+            margin: 0;
+            line-height: 1;
+        }
+        
+        .slogan {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            color: #e0e0ff;
+            margin-top: 0;
+            font-style: italic;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7), 0 0 40px rgba(106, 142, 251, 0.8);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                top: 20px;
+                left: 20px;
+            }
+            
+            .brand {
+                font-size: 2rem;
+            }
+            
+            .slogan {
+                font-size: 0.8rem;
+            }
+            
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-message {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="stars" class="stars"></div>
+    
+    <div class="logo">
+        <h2 class="brand">ENV</h2>
+        <p class="slogan">aexleon</p>
+    </div>
+    
+    <div class="container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Oops! Seite nicht gefunden</p>
+    </div>
+    
+    <script>
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 80;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random properties
+                const size = Math.random() * 2 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 2;
+                const duration = Math.random() * 3 + 1;
+                
+                // Apply styles
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Initialize
+        window.onload = function() {
+            createStars();
+        };
+    </script>
+</body>
+</html>
