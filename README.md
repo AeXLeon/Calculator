@@ -1,4 +1,4 @@
-# Calculator
+ Calculator
 -------
 *v0.2* 
 ---
